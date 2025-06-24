@@ -87,6 +87,7 @@ def remove_readonly(func, path, _):
 def create_build_dir(
     board: Board,
     defines: list[str],
+    customsdks: list[str],
     no_install_deps: bool,
     extra_packages: list[str],
     build_dir: str | None,
@@ -103,6 +104,10 @@ def create_build_dir(
         defines.extend(board.defines)
         # remove duplicates
         defines = list(set(defines))
+    if board.customsdks:
+        customsdks.extend(board.customsdks)
+        # remove duplicates
+        customsdks = list(set(customsdks))
     board_name = board.board_name
     real_board_name = board.get_real_board_name()
     locked_print(f"*** Initializing environment for {board_name} ***")
@@ -163,6 +168,9 @@ def create_build_dir(
     if defines:
         build_flags_str = " ".join(f"-D{define}" for define in defines)
         cmd_list.append(f"--project-option=build_flags={build_flags_str}")
+    if customsdks:
+        custom_sdkconfig_str = " ".join(f"{customsdk}" for customsdk in customsdks)
+        cmd_list.append(f"--project-option=custom_sdkconfig={custom_sdkconfig_str}")
     if extra_packages:
         cmd_list.append(f'--project-option=lib_deps={",".join(extra_packages)}')
     if no_install_deps:
