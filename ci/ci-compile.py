@@ -157,7 +157,7 @@ def parse_args():
         "--defines", type=str, help="Comma-separated list of compiler definitions"
     )
     parser.add_argument(
-        "--customsdks", type=str, help="Comma-separated list of custom_sdkconfig settings"
+        "--customsdk", type=str, help="custom_sdkconfig project option"
     )
     parser.add_argument(
         "--extra-packages",
@@ -305,9 +305,6 @@ def create_concurrent_run_args(args: argparse.Namespace) -> ConcurrentRunArgs:
     defines: list[str] = []
     if args.defines:
         defines.extend(args.defines.split(","))
-    customsdks: list[str] = []
-    if args.customsdks:
-        customsdks.extend(args.customsdks.split(","))
     extra_packages: list[str] = []
     if args.extra_packages:
         extra_packages.extend(args.extra_packages.split(","))
@@ -320,7 +317,7 @@ def create_concurrent_run_args(args: argparse.Namespace) -> ConcurrentRunArgs:
         examples=examples_paths,
         skip_init=skip_init,
         defines=defines,
-        customsdks=customsdks,
+        customsdk=customsdk,
         extra_packages=extra_packages,
         libs=LIBS,
         build_dir=build_dir,
