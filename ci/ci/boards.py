@@ -165,7 +165,7 @@ ESP32_C2_DEVKITM_1 = Board(
     use_pio_run=True,
     platform="https://github.com/Jason2866/platform-espressif32.git#Arduino/IDF5",
     defines=["CONFIG_IDF_TARGET_ESP32C2=1"],
-    customsdks=["CONFIG_IDF_TARGET=\"esp32c2\""],
+    customsdks=['CONFIG_IDF_TARGET="esp32c2"'],
 )
 
 ESP32_C3_DEVKITM_1 = Board(
