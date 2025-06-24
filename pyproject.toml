@@ -9,6 +9,7 @@ dependencies = [
     "fastled-wasm",
     "python-dateutil",
     "ruff",
+    "rich",
     "mypy",
     "pyright",
     "types-python-dateutil",
