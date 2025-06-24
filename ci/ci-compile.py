@@ -302,6 +302,7 @@ def create_concurrent_run_args(args: argparse.Namespace) -> ConcurrentRunArgs:
         ]
         for exclude in exclude_examples:
             examples.remove(exclude)
+    customsdk = args.customsdk
     defines: list[str] = []
     if args.defines:
         defines.extend(args.defines.split(","))
