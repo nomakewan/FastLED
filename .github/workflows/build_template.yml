@@ -60,6 +60,7 @@ jobs:
       - name: PlatformIO Versions
         run: |
           uv run platformio --version
+          uv pip install rich-click
 
       - name: Build FastLED examples with "./compile --no-interactive  ${{ inputs.args }}"
         run: |
