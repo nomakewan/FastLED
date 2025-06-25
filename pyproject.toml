@@ -16,7 +16,6 @@ dependencies = [
     "isort",
     "black",
     "pip",
-    "rich-click",
     "pytest",
     "pytest-xdist",
     "fpvgcc",
