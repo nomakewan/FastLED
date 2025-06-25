@@ -59,7 +59,6 @@ jobs:
 
       - name: PlatformIO Versions
         run: |
-          uv pip install -U https://github.com/pioarduino/platformio-core/archive/refs/tags/v6.1.18.zip
           uv run platformio --version
 
       - name: Build FastLED examples with "./compile --no-interactive  ${{ inputs.args }}"
